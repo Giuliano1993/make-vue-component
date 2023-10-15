@@ -2,16 +2,18 @@
 const fs = require('fs')
 
 const configs = {
+    INIT_PATH: process.env.INIT_CWD,
     BASE_DIR: "./src",
     STUBS_DIR: "./node_modules/make-vue-component/src/stubs",
     COMPONENT_FOLDER: "/components",
 }
 
-/*const configTest = {
+const configTest = {
+    INIT_PATH: process.env.INIT_CWD,
     BASE_DIR: "./src",
     STUBS_DIR: "./src/stub",
     COMPONENT_FOLDER: "/components"
-}*/
+}
 
 //const conf = process.env.ENV ? configs : configTest
 
@@ -32,7 +34,7 @@ if(!fs.existsSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}`)){
     fs.mkdirSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}`);
 }
 
-fs.readFile(`${configs.STUBS_DIR}/${componentTemplate}`, 'utf8', (err,data)=>{
+fs.readFile(`${configs.INIT_PATH}/${configs.STUBS_DIR}/${componentTemplate}`, 'utf8', (err,data)=>{
     data = data.replaceAll("Component",capitalizeFirstLetter(componentName))
     if(!fs.existsSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}${customFolder}`)){
         fs.mkdirSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}${customFolder}`);
