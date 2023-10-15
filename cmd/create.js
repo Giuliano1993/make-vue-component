@@ -7,13 +7,13 @@ const configs = {
     COMPONENT_FOLDER: "/components",
 }
 
-const configTest = {
+/*const configTest = {
     BASE_DIR: "./src",
     STUBS_DIR: "./src/stub",
     COMPONENT_FOLDER: "/components"
-}
+}*/
 
-const conf = process.env.ENV ? configs : configTest
+//const conf = process.env.ENV ? configs : configTest
 
 const componentName = process.argv[2]
 if(!componentName){
@@ -28,16 +28,16 @@ let customFolder = folderArgIndex > -1 ? process.argv[folderArgIndex+1] : '';
 customFolder = customFolder.charAt(-1) == '/' ? customFolder : `${customFolder}/`
 customFolder = customFolder.charAt(0) == '/' ? customFolder : `/${customFolder}`
 
-if(!fs.existsSync(`${conf.BASE_DIR}${conf.COMPONENT_FOLDER}`)){
-    fs.mkdirSync(`${conf.BASE_DIR}${conf.COMPONENT_FOLDER}`);
+if(!fs.existsSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}`)){
+    fs.mkdirSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}`);
 }
 
-fs.readFile(`${conf.STUBS_DIR}/${componentTemplate}`, 'utf8', (err,data)=>{
+fs.readFile(`${configs.STUBS_DIR}/${componentTemplate}`, 'utf8', (err,data)=>{
     data = data.replaceAll("Component",capitalizeFirstLetter(componentName))
-    if(!fs.existsSync(`${conf.BASE_DIR}${conf.COMPONENT_FOLDER}${customFolder}`)){
-        fs.mkdirSync(`${conf.BASE_DIR}${conf.COMPONENT_FOLDER}${customFolder}`);
+    if(!fs.existsSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}${customFolder}`)){
+        fs.mkdirSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}${customFolder}`);
     }
-    fs.writeFile(`${conf.BASE_DIR}${conf.COMPONENT_FOLDER}${customFolder}${componentName}.vue`,data,err=>{
+    fs.writeFile(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}${customFolder}${componentName}.vue`,data,err=>{
         if(err){
             console.error(err)
         }else{
