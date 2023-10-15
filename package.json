@@ -4,7 +4,7 @@
   "description": "a simple command to create a new vue component",
   "main": "./cmd/create.js",
   "bin":{
-    "create-component":"./cmd/create.js"
+    "create-vue-component":"./cmd/create.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
