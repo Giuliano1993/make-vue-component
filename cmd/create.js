@@ -1,15 +1,20 @@
 #! /usr/bin/env node
 const fs = require('fs')
+const path = require('node:path');
+//console.log(process)
+
+//const dir = path.dirname(process.argv[1].substring(0, process.argv[1].lastIndexOf("\\")));
+const dir = path.join(path.dirname(process.argv[1]),'..');
 
 const configs = {
-    INIT_PATH: process.env.INIT_CWD,
+    INIT_PATH: dir,
     BASE_DIR: "./src",
     STUBS_DIR: "./node_modules/make-vue-component/src/stubs",
     COMPONENT_FOLDER: "/components",
 }
 
 const configTest = {
-    INIT_PATH: process.env.INIT_CWD,
+    INIT_PATH: dir,
     BASE_DIR: "./src",
     STUBS_DIR: "./src/stub",
     COMPONENT_FOLDER: "/components"
