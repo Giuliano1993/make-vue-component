@@ -1,8 +1,8 @@
 #! /usr/bin/env node
 const fs = require('fs')
 const path = require('node:path');
-//const dir = path.join(path.dirname(process.argv[1]),'..');
-const dir = path.dirname(process.argv[1]);
+const mainFilename = path.dirname(require.main.filename)
+const dir = path.join(mainFilename,'..');
 
 const configs = {
     INIT_PATH: dir,
@@ -10,9 +10,6 @@ const configs = {
     STUBS_DIR: "stub",
     COMPONENT_FOLDER: "/components",
 }
-
-
-//const conf = process.env.ENV ? configs : configTest
 
 try {
     

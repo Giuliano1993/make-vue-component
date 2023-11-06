@@ -1,6 +1,6 @@
 {
   "name": "make-vue-component",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "a simple command to create a new vue component",
   "main": "./cmd/make-vue-component.js",
   "bin": "./cmd/make-vue-component.js",
