@@ -9,7 +9,7 @@ const dir = path.join(path.dirname(process.argv[1]),'..');
 const configs = {
     INIT_PATH: dir,
     BASE_DIR: "./src",
-    STUBS_DIR: "src/stubs",
+    STUBS_DIR: "stubs",
     COMPONENT_FOLDER: "/components",
 }
 
@@ -38,7 +38,8 @@ customFolder = customFolder.charAt(0) == '/' ? customFolder : `/${customFolder}`
 if(!fs.existsSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}`)){
     fs.mkdirSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}`);
 }
-console.log(`${configs.INIT_PATH}/${configs.STUBS_DIR}/${componentTemplate}`)
+console.log(path.join(configs.INIT_PATH,configs.STUBS_DIR,componentTemplate))
+console.log(__filename);
 fs.readFile(path.join(configs.INIT_PATH,configs.STUBS_DIR,componentTemplate), 'utf8', (err,data)=>{
     data = data.replaceAll("Component",capitalizeFirstLetter(componentName))
     if(!fs.existsSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}${customFolder}`)){
