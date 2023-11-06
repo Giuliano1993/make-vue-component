@@ -30,10 +30,6 @@ try {
         fs.mkdirSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}`);
     }
     
-    console.log(path.dirname(process.argv[1]))
-    console.log(path.join(configs.INIT_PATH,'src',configs.STUBS_DIR,componentTemplate))
-    console.log(path.join(configs.INIT_PATH,'src',configs.STUBS_DIR,componentTemplate))
-    console.log(__filename);
     fs.readFile(path.join(configs.INIT_PATH,'src',configs.STUBS_DIR,componentTemplate), 'utf8', (err,data)=>{
         data = data.replaceAll("Component",capitalizeFirstLetter(componentName))
         if(!fs.existsSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}${customFolder}`)){
