@@ -1,7 +1,8 @@
 #! /usr/bin/env node
 const fs = require('fs')
 const path = require('node:path');
-const dir = path.join(path.dirname(process.argv[1]),'..');
+//const dir = path.join(path.dirname(process.argv[1]),'..');
+const dir = path.dirname(process.argv[1]);
 
 const configs = {
     INIT_PATH: dir,
@@ -32,6 +33,8 @@ try {
         fs.mkdirSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}`);
     }
     
+    console.log(path.dirname(process.argv[1]))
+    console.log(path.join(configs.INIT_PATH,'src',configs.STUBS_DIR,componentTemplate))
     console.log(path.join(configs.INIT_PATH,'src',configs.STUBS_DIR,componentTemplate))
     console.log(__filename);
     fs.readFile(path.join(configs.INIT_PATH,'src',configs.STUBS_DIR,componentTemplate), 'utf8', (err,data)=>{
