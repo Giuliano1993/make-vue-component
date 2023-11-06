@@ -9,7 +9,7 @@ const dir = path.join(path.dirname(process.argv[1]),'..');
 const configs = {
     INIT_PATH: dir,
     BASE_DIR: "./src",
-    STUBS_DIR: "stubs",
+    STUBS_DIR: "stub",
     COMPONENT_FOLDER: "/components",
 }
 
