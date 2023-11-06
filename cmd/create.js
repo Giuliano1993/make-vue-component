@@ -38,9 +38,9 @@ customFolder = customFolder.charAt(0) == '/' ? customFolder : `/${customFolder}`
 if(!fs.existsSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}`)){
     fs.mkdirSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}`);
 }
-console.log(path.join(configs.INIT_PATH,configs.STUBS_DIR,componentTemplate))
+console.log(path.join(configs.INIT_PATH,'src',configs.STUBS_DIR,componentTemplate))
 console.log(__filename);
-fs.readFile(path.join(configs.INIT_PATH,configs.STUBS_DIR,componentTemplate), 'utf8', (err,data)=>{
+fs.readFile(path.join(configs.INIT_PATH,'src',configs.STUBS_DIR,componentTemplate), 'utf8', (err,data)=>{
     data = data.replaceAll("Component",capitalizeFirstLetter(componentName))
     if(!fs.existsSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}${customFolder}`)){
         fs.mkdirSync(`${configs.BASE_DIR}${configs.COMPONENT_FOLDER}${customFolder}`);
