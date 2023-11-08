@@ -1,8 +1,8 @@
 {
   "name": "make-vue-component",
-  "version": "0.2.0",
   "description": "a simple command to create a new vue component",
   "main": "./cmd/make-vue-component.js",
+  "version": "0.2.1",
   "bin": "./cmd/make-vue-component.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
