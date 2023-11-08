@@ -7,6 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": "https://github.com/Giuliano1993/make-vue-component",
   "keywords": [
     "vue",
     "vite",
